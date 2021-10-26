@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/details_cardview"
+        android:animateLayoutChanges="true"
+        android:layout_marginLeft="@dimen/cardview_left_right_margin"
+        android:layout_marginStart="@dimen/cardview_left_right_margin"
+        android:layout_marginRight="@dimen/cardview_left_right_margin"
+        android:layout_marginEnd="@dimen/cardview_left_right_margin"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/expanded_view_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv_owner_data, tv_owner_txt, tv_ocr_data, tv_ocr_text, copy_to_clipboard, tv_due_date_text, tv_due_date_data, tv_invoice_amount_data, tv_invoice_amount_text, button_pdf, invoice_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credits_total"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_credits_total"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="20 0000kr"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvKrediterTillgodo" />
+
+            <TextView
+                android:id="@+id/tvKrediterTillgodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credits_left"
+                app:layout_constraintTop_toBottomOf="@id/textview_credits_total"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCreditsLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textview_credits_total"
+                app:layout_constraintEnd_toEndOf="@id/textview_credits_total"
+                tools:text="5000kr" />
+
+            <TextView
+                android:id="@+id/tvCreditsUsedString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credits_used"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCreditsLeft" />
+
+            <TextView
+                android:id="@+id/tvCreditsUsedSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCreditsLeft"
+                app:layout_constraintEnd_toEndOf="@id/textview_credits_total"
+                tools:text="10000kr" />
+
+            <TextView
+                android:id="@+id/tv_owner_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_owner"
+                app:layout_constraintTop_toBottomOf="@id/tvCreditsUsedSum"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="ÄGARE:" />
+
+            <TextView
+                android:id="@+id/tv_owner_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCreditsUsedSum"
+                app:layout_constraintEnd_toEndOf="@id/textview_credits_total"
+                tools:text="Sven Svensson" />
+
+            <TextView
+                android:id="@+id/tv_ocr_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_ocr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_owner_data"
+                tools:text="OCR:" />
+
+            <TextView
+                android:id="@+id/tv_ocr_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_owner_data"
+                app:layout_constraintEnd_toEndOf="@id/textview_credits_total"
+                tools:text="9417898918443" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/copy_to_clipboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/ic_baseline_content_copy_24"
+                app:layout_constraintTop_toTopOf="@id/tv_ocr_data"
+                app:layout_constraintBottom_toBottomOf="@id/tv_ocr_data"
+                app:layout_constraintStart_toEndOf="@id/tv_ocr_data" />
+
+            <TextView
+                android:id="@+id/invoice_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/latest_invoice"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_ocr_text" />
+
+            <TextView
+                android:id="@+id/tv_due_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bill_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/invoice_text" />
+
+            <TextView
+                android:id="@+id/tv_due_date_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="30 September 2021"
+                app:layout_constraintTop_toBottomOf="@id/invoice_text"
+                app:layout_constraintEnd_toEndOf="@id/textview_credits_total" />
+
+            <TextView
+                android:id="@+id/tv_invoice_amount_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bill_amount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_due_date_text" />
+
+            <TextView
+                android:id="@+id/tv_invoice_amount_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="129kr"
+                app:layout_constraintTop_toBottomOf="@id/tv_due_date_text"
+                app:layout_constraintEnd_toEndOf="@id/textview_credits_total" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_pdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:minHeight="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/retrieve_pdf"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:layout_constraintTop_toBottomOf="@id/tv_ocr_data"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_due_date_data"
+                app:layout_constraintStart_toEndOf="@id/textview_credits_total" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_expand"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_baseline_expand_more_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

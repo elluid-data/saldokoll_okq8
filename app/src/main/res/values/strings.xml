@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Saldokoll OKQ8</string>
+    <string name="personnummer">Personnummer</string>
+    <string name="ssn_helper_text">ååååmmddxxxx</string>
+    <string name="ssn_error_text">ååååmmddxxxx Felaktigt personnummer</string>
+    <string name="save_ssn">Spara personnummer</string>
+    <string name="login_text">Logga In</string>
+    <string name="bankid_missing">Avbryter, BankID ej installerat</string>
+    <string name="bankid_not_done">BankID signering inte gjord, öppna BankID &amp; slutför signering tryck sen Anslut igen</string>
+    <string name="bankid_cancelled">BankID signering avbryten</string>
+    <string name="anslut_igen">Anslut igen</string>
+    <string name="error_signin">Fel vid inloggning</string>
+    <string name="ok">OK</string>
+    <string name="dark_mode">Mörkt Tema</string>
+
+    <!-- Account Fragment -->
+    <string name="account_information">Kontodetaljer</string>
+    <string name="credits_total">Beviljad Kredit:</string>
+    <string name="credits_left">Krediter tillgodo:</string>
+    <string name="credits_used">Kontosaldo:</string>
+
+    <string name="no_transactions">Inga transaktioner</string>
+
+    <string name="last_transactions">Senaste Transaktionerna</string>
+    <string name="account_owner">Ägare:</string>
+    <string name="account_ocr">OCR:</string>
+    <string name="bill_amount">Att betala:</string>
+    <string name="bill_date">Betalas:</string>
+    <string name="reserved_amount">Reserverat belopp</string>
+    <string name="logout">Logga Ut</string>
+    <string name="please_wait">Vänligen vänta %1$d sekunder innan nästa anslutning.</string>
+    <string name="fetch_more">Fler transaktioner</string>
+    <string name="foreign_text">Ursprungligt belopp: %1$s</string>
+
+    <string name="connecting">Ansluter..</string>
+    <string name="signin">Inväntar BankID respons..</string>
+    <string name="pdf_not_done">Nedladdning ej klar.</string>
+    <string name="pdf_error">Sessionen avbruten, logga in på nytt för att hämta faktura.</string>
+    <string name="retrieve_data">Hämtar data</string>
+    <string name="retrieve_pdf">Hämta PDF</string>
+    <string name="latest_invoice">Senaste faktura</string>
+    <string name="log_out">Logga ut</string>
+
+
+
+</resources>

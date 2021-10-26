@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_transactions"
+        android:layout_marginLeft="@dimen/cardview_left_right_margin"
+        android:layout_marginStart="@dimen/cardview_left_right_margin"
+        android:layout_marginRight="@dimen/cardview_left_right_margin"
+        android:layout_marginEnd="@dimen/cardview_left_right_margin"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="2dp"
+                android:textSize="16sp"
+                android:text="@string/last_transactions" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginBottom="2dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listview_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/empty_list"
+                android:text="@string/no_transactions"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:visibility="invisible"
+                android:textSize="25sp"
+                android:gravity="center_vertical|center_horizontal" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
