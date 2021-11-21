@@ -53,7 +53,7 @@ class OKQ8Service {
             Pair("javax.faces.ViewState", currentViewStateParameter),
             Pair("form1:swedishBankidMobileLink", "form1:swedishBankidMobileLink")
         )
-        val (_, responsePost, resultPost) = postRequest.awaitStringResponse()
+        val (_, _, resultPost) = postRequest.awaitStringResponse()
         // Clicked and opened the BankID sign in box. Need to parse viewstate.
         viewstateDataResult = OKQ8Parser.getViewState(resultPost)
         if(!viewstateDataResult.isSuccess) {
@@ -64,7 +64,7 @@ class OKQ8Service {
     }
 
     suspend fun signIn(username: String) : Response {
-        var signInRequest = Fuel.post(OKQ8_BANK_DOMAIN + getUpdatedSessionUrl())
+        val signInRequest = Fuel.post(OKQ8_BANK_DOMAIN + getUpdatedSessionUrl())
         signInRequest.header(*cookieStorage.getCookies().toTypedArray())
         signInRequest.parameters = listOf(
             Pair("loginForm", "loginForm"),
@@ -109,7 +109,7 @@ class OKQ8Service {
             it.header("X-EVRY-CLIENT-ACCESSTOKEN", "null")
             it.header("X-EVRY-CLIENT-CLIENTNAME", "RetailOnline")
             it.header("X-EVRY-CLIENT-REQUESTID", Session.getNumericString())
-            it.body("{\"credentials\":{\"tokenType\":\"EvrySO\",\"token\":\"" + accessToken + "\"},\"tokenProtocolVersions\":[\"ATP-1.0\",\"1.1\"],\"loginContext\":\"PRIVATE\"}")
+            it.body("{\"credentials\":{\"tokenType\":\"EvrySO\",\"token\":\"$accessToken\"},\"tokenProtocolVersions\":[\"ATP-1.0\",\"1.1\"],\"loginContext\":\"PRIVATE\"}")
         }
         val (_, response, result) = sessionRequest.awaitStringResponse()
         // Save token and cookies in session

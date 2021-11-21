@@ -18,16 +18,13 @@ import java.io.File
 import android.view.*
 import androidx.core.content.FileProvider
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.ads.AdRequest
 import se.adanware.visaparser.R
 import se.adanware.visaparser.data.observeEvent
 import se.adanware.visaparser.model.BankViewModel
 import se.adanware.visaparser.model.DownloadStatus
 import se.adanware.visaparser.model.PDF_DIRECTORY
 import se.adanware.visaparser.model.PDF_FILENAME
-import kotlin.math.log10
 
 
 class AccountFragment : Fragment() {

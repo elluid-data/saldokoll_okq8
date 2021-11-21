@@ -30,19 +30,19 @@ class ItemAdapter(private val context: Context, private val dataset: List<Transa
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.amountTextView.setText(item.getAmount())
-        if(!item.merchantCity.isEmpty()) {
-            holder.merchantTextView.setText("${item.merchantName}, ${item.merchantCity}")
+        if(item.merchantCity.isNotEmpty()) {
+            holder.merchantTextView.text = "${item.merchantName}, ${item.merchantCity}"
         }
         else {
-            holder.merchantTextView.setText(item.merchantName)
+            holder.merchantTextView.text = item.merchantName
         }
 
-        holder.dateTextView.setText(item.getDate())
+        holder.dateTextView.text = item.getDate()
         if(item.isReserved) {
             holder.merchantTextView.setTypeface(holder.merchantTextView.typeface, Typeface.ITALIC)
             holder.reservedTextView.setTypeface(holder.reservedTextView.typeface, Typeface.ITALIC)
             holder.reservedTextView.visibility = View.VISIBLE
-            holder.reservedTextView.setText(context.resources.getString(R.string.reserved_amount))
+            holder.reservedTextView.text = context.resources.getString(R.string.reserved_amount)
         }
         if(item.isPayment) {
             holder.merchantTextView.setTextColor(ContextCompat.getColor(context, R.color.green_500))
@@ -51,7 +51,7 @@ class ItemAdapter(private val context: Context, private val dataset: List<Transa
 
         if(item.isForeignCurrency) {
             holder.foreignAmountTextView.visibility = View.VISIBLE
-            holder.foreignAmountTextView.setText(context.getString(R.string.foreign_text, item.getForeignAmount()))
+            holder.foreignAmountTextView.text = context.getString(R.string.foreign_text, item.getForeignAmount())
         }
     }
 

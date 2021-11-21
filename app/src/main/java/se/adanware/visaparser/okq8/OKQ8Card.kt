@@ -10,6 +10,7 @@ import java.util.*
 
 
 data class Invoice(private val _totalAmount: Double, private val _dueDate: Long, val invoiceUrl: String) {
+    lateinit var pdfUrl: String
     val totalAmount: String
         get() {
             return if (_totalAmount == -1.0) {
@@ -26,8 +27,6 @@ data class Invoice(private val _totalAmount: Double, private val _dueDate: Long,
             return DateFormat.getDateInstance(DateFormat.LONG).format(Date(_dueDate))
         }
     }
-
-    lateinit var pdfUrl: String
 }
 
 data class OKQ8Card(val accountingBalance: Double,

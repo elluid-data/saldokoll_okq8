@@ -1,6 +1,7 @@
 package se.adanware.visaparser.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -8,7 +9,10 @@ import androidx.fragment.app.Fragment
 import se.adanware.visaparser.databinding.FragmentLoginViewBinding
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.net.Uri
 import android.view.*
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.activityViewModels
@@ -78,6 +82,9 @@ class LoginFragment : Fragment() {
             // Update progress
             when(it) {
                 LoginStatus.AWAITING_BANKID -> updateProgressDialog(getString(R.string.signin))
+                LoginStatus.BANKID_RECEIVED -> {
+                    startBankIDSigning()
+                }
                 LoginStatus.CANCELLED -> {
                     dismissProgressDialog()
                     Toast.makeText(context, getString(R.string.bankid_cancelled), Toast.LENGTH_LONG).show()
@@ -195,6 +202,22 @@ class LoginFragment : Fragment() {
     private fun dismissProgressDialog() {
         val fragment = parentFragmentManager.findFragmentByTag(PROGRESS_DIALOG_TAG) as StatusDialog?
         fragment?.dismiss()
+    }
+
+    fun startBankIDSigning() {
+        val intent = Intent().also {
+            it.setPackage("com.bankid.bus")
+            it.action = Intent.ACTION_VIEW
+            it.type = "bankid"
+            it.data = Uri.parse("bankid://www.bankid.com?redirect=null")
+        }
+
+        startForResult.launch(intent)
+    }
+
+    val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { _: ActivityResult ->
+        // BankID never sends any data back so just check when activity comes back into foreground.
+        bankViewModel.checkSignInStatus()
     }
 
 }
