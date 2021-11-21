@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="se.adanware.visaparser">
+    package="com.elluid.saldokoll">
     <queries>
         <package android:name="com.bankid.bus" />
         <intent>
@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SaldokollOKQ8">
         <activity
-            android:name=".MainActivity"
+            android:name="com.elluid.saldokoll.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="se.adanware.fileprovider"
+            android:authorities="com.elluid.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

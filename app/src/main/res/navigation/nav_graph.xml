@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="se.adanware.visaparser.fragment.LoginFragment"
+        android:name="com.elluid.saldokoll.fragment.LoginFragment"
         android:label="@string/app_name" >
         <action
             android:id="@+id/action_loginFragment_to_accountFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="se.adanware.visaparser.fragment.AccountFragment"
+        android:name="com.elluid.saldokoll.fragment.AccountFragment"
         android:label="@string/account_information" >
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"

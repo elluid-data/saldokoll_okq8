@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="se.adanware.visaparser.model.Errors"/>
+        <import type="com.elluid.saldokoll.model.Errors"/>
         <variable
             name="loginFragment"
-            type="se.adanware.visaparser.fragment.LoginFragment" />
+            type="com.elluid.saldokoll.fragment.LoginFragment" />
 
         <variable
             name="viewModel"
-            type="se.adanware.visaparser.model.UserViewModel" />
+            type="com.elluid.saldokoll.model.UserViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
